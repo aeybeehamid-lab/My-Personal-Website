@@ -72,16 +72,9 @@ export default function Home() {
             <Button variant="secondary" href={content.hero.ctaSecondary.href}>
               {content.hero.ctaSecondary.label}
             </Button>
-            {content.personal.cvPdf && (
-              <Button
-                variant="ghost"
-                href={content.personal.cvPdf}
-                external
-                className="!px-3"
-              >
-                {content.personal.cvLabel}
-              </Button>
-            )}
+            <Button variant="ghost" href={content.resume.viewPath} className="!px-3">
+              {content.resume.viewLabel}
+            </Button>
           </motion.div>
         </div>
       </section>

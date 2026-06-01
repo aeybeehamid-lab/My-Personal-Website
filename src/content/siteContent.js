@@ -19,7 +19,7 @@ export const siteContent = {
     title: 'Engineer in Training',
     tagline:
       'Building practical power, embedded, and integrated systems — from circuit bench to field installation.',
-    location: 'Jos, Plateau State, Nigeria',
+    location: 'Nigeria',
     email: 'Aeybeehamid@gmail.com',
     // Set showPhone to true only if you want your number on the public site
     phone: '08109979402',
@@ -27,9 +27,17 @@ export const siteContent = {
     languages: ['Hausa', 'English'],
     // Put your photo in: public/images/profile.jpg (then use path below)
     photo: '/images/profile.jpg',
-    // Put your CV PDF in: public/cv/resume.pdf
-    cvPdf: '/cv/resume.pdf',
-    cvLabel: 'Download resume (PDF)',
+    // Optional: add public/cv/resume.pdf for one-click download on /resume page
+  },
+
+  // ─── Resume viewer (/resume page) ───────────────────────────────────────────
+  resume: {
+    viewPath: '/resume',
+    htmlPath: '/cv/resume.html',
+    pdfPath: '/cv/resume.pdf',
+    viewLabel: 'View resume',
+    downloadLabel: 'Download PDF',
+    printLabel: 'Save as PDF',
     // Full CV & cover letters (browser → Print → Save as PDF):
     // /cv/cv-full.html
     // /cv/cover-letter.html          — general
@@ -55,6 +63,7 @@ export const siteContent = {
 
   // ─── Career documents (PDF via browser print, or direct links) ─────────────
   careerDocs: [
+    { label: 'View resume on site', href: '/resume' },
     { label: 'Resume (print to PDF)', href: '/cv/resume.html' },
     { label: 'Full CV', href: '/cv/cv-full.html' },
     { label: 'Cover letter — Engineering', href: '/cv/cover-letter-engineering.html' },
@@ -307,6 +316,7 @@ export const siteContent = {
     { label: 'Experience', path: '/experience' },
     { label: 'Skills', path: '/skills' },
     { label: 'Education', path: '/education' },
+    { label: 'Resume', path: '/resume' },
     { label: 'Contact', path: '/contact' },
   ],
 }

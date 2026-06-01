@@ -30,10 +30,16 @@ Supported formats: `.jpg`, `.png`, `.webp`
 
 ---
 
-## Adding your CV (PDF)
+## Resume on the website
 
-1. Save the file as `public/cv/resume.pdf`
-2. `personal.cvPdf` is already set to `'/cv/resume.pdf'`
+- **View on site:** open `/resume` in the nav (embedded viewer + print/download)
+- **One-click PDF download:** save your file as `public/cv/resume.pdf` — the Resume page detects it automatically
+
+## Adding your CV (PDF file)
+
+1. Open http://localhost:5173/cv/resume.html → Ctrl+P → Save as PDF
+2. Save the file as `public/cv/resume.pdf`
+3. Push to GitHub — the Resume page will show **Download PDF** instead of **Save as PDF**
 
 ---
 

@@ -164,6 +164,18 @@ li {
   border-radius: 6px;
 }
 
+html.embed .hint-screen {
+  display: none !important;
+}
+
+html.embed body {
+  background: #fff;
+}
+
+html.embed .doc {
+  padding-top: 8mm;
+}
+
 @media print {
   .hint-screen,
   .no-print {

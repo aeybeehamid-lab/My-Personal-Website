@@ -59,11 +59,7 @@ export default function Contact() {
               <Button href={`mailto:${personal.email}`} external>
                 Send email
               </Button>
-              {personal.cvPdf && (
-                <Button variant="secondary" href={personal.cvPdf} external>
-                  {personal.cvLabel}
-                </Button>
-              )}
+              <Button href={content.resume.viewPath}>{content.resume.viewLabel}</Button>
             </div>
           </div>
         </FadeIn>
