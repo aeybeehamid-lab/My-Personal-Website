@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cover Letter — Abdulhamid Inuwa</title>
+    <link rel="stylesheet" href="print.css" />
+  </head>
+  <body>
+    <p class="hint-screen no-print">
+      <strong>Before printing:</strong> Replace every yellow-highlighted placeholder below (click Edit in
+      browser or edit <code>docs/career/cover-letter-template.md</code>). Save one PDF per company.
+    </p>
+
+    <article class="doc letter-body">
+      <header class="doc-header">
+        <h1>Abdulhamid Inuwa</h1>
+        <div class="contact-line">
+          <span>Jos, Plateau State, Nigeria</span>
+          <span>·</span>
+          <span>Aeybeehamid@gmail.com</span>
+          <span>·</span>
+          <span>+234 810 997 9402</span>
+        </div>
+      </header>
+
+      <div class="letter-meta">
+        <p><span id="letter-date">1 June 2026</span></p>
+        <p>
+          <strong>Hiring Manager</strong><br />
+          <mark>[Company Name]</mark><br />
+          <mark>[Company Address — City, Country]</mark>
+        </p>
+        <p>
+          <strong>Re: Application for</strong> <mark>[Job Title / Role Name]</mark>
+        </p>
+      </div>
+
+      <p>Dear Hiring Manager,</p>
+
+      <p>
+        I am writing to apply for the position of <mark>[Job Title]</mark> at
+        <mark>[Company Name]</mark>. I am an Engineer in Training with a B.Eng in Electrical and
+        Electronics Engineering from Abubakar Tafawa Balewa University and hands-on experience across
+        power electronics, embedded systems, residential electrical installations, and technical
+        training. I am motivated by <mark>[one specific reason — e.g. your work in renewable energy /
+        infrastructure / innovation in Nigeria]</mark>, and I believe my background aligns strongly with
+        your team’s needs.
+      </p>
+
+      <p>
+        In my recent role as Site Engineer on residential electrical installations at Anarock City Hub
+        Estate, Abuja, I supervised conduit, cabling, lighting, and socket installations across multiple
+        buildings—developing site coordination skills and practical knowledge of installation standards.
+        At the ITF Model Skills Training Centre, I strengthened my electronics and embedded systems
+        capabilities and gained experience delivering technical instruction to trainees. These roles
+        complement my project work, including inverter and solar–battery power systems, intelligent RC
+        and biometric embedded prototypes, and ongoing research in energy harvesting concepts.
+      </p>
+
+      <p>
+        As co-founder of Paychat, a fintech platform integrating payments and messaging, I contribute to
+        product design, system planning, and implementation strategy—experience that has improved my
+        ability to think across hardware and software boundaries. I am also pursuing a B.Sc. in
+        Cybersecurity, which supports my goal of building reliable, secure, and maintainable systems. I
+        bring strong problem-solving habits, clear technical documentation, and a commitment to
+        professional growth and community impact.
+      </p>
+
+      <p>
+        I would welcome the opportunity to discuss how I can contribute to
+        <mark>[Company Name]</mark>’s objectives. Thank you for considering my application. I have
+        attached my resume for your review and am available for an interview at your convenience.
+      </p>
+
+      <div class="letter-sign">
+        <p>Sincerely,</p>
+        <p><strong>Abdulhamid Inuwa</strong></p>
+      </div>
+    </article>
+
+    <script>
+      const el = document.getElementById('letter-date')
+      if (el) {
+        el.textContent = new Date().toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      }
+    </script>
+    <style>
+      mark {
+        background: #fff3cd;
+        padding: 0 2px;
+      }
+      @media print {
+        mark {
+          background: transparent;
+          font-weight: 600;
+        }
+      }
+    </style>
+  </body>
+</html>

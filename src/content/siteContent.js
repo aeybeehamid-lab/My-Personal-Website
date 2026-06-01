@@ -29,7 +29,9 @@ export const siteContent = {
     photo: '/images/profile.jpg',
     // Put your CV PDF in: public/cv/resume.pdf
     cvPdf: '/cv/resume.pdf',
-    cvLabel: 'Download CV',
+    cvLabel: 'Download resume (PDF)',
+    // Full CV & cover letter (open in browser, then Print → Save as PDF):
+    // /cv/cv-full.html  ·  /cv/cover-letter.html
   },
 
   // ─── Social & professional links (leave "" until you have the URL) ────────
