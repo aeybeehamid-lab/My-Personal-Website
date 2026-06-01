@@ -30,18 +30,36 @@ export const siteContent = {
     // Put your CV PDF in: public/cv/resume.pdf
     cvPdf: '/cv/resume.pdf',
     cvLabel: 'Download resume (PDF)',
-    // Full CV & cover letter (open in browser, then Print → Save as PDF):
-    // /cv/cv-full.html  ·  /cv/cover-letter.html
+    // Full CV & cover letters (browser → Print → Save as PDF):
+    // /cv/cv-full.html
+    // /cv/cover-letter.html          — general
+    // /cv/cover-letter-engineering.html — electrical / embedded / power
+    // /cv/cover-letter-fintech.html     — product / startup / Paychat-style roles
   },
 
   // ─── Social & professional links (leave "" until you have the URL) ────────
   social: {
-    github: '',
-    linkedin: '',
+    github: 'https://github.com/aeybeehamid-lab',
+    linkedin: '', // paste your LinkedIn URL when ready
     twitter: '',
-    // Paychat or other product links when ready
     paychat: '',
   },
+
+  // ─── Highlight stats (home page — edit values anytime) ───────────────────
+  stats: [
+    { value: '5+', label: 'Technical projects' },
+    { value: '7 mo', label: 'ITF engineering internship' },
+    { value: '4 mo', label: 'Residential site engineering' },
+    { value: '2', label: 'Degrees (B.Eng + B.Sc.)' },
+  ],
+
+  // ─── Career documents (PDF via browser print, or direct links) ─────────────
+  careerDocs: [
+    { label: 'Resume (print to PDF)', href: '/cv/resume.html' },
+    { label: 'Full CV', href: '/cv/cv-full.html' },
+    { label: 'Cover letter — Engineering', href: '/cv/cover-letter-engineering.html' },
+    { label: 'Cover letter — Fintech', href: '/cv/cover-letter-fintech.html' },
+  ],
 
   // ─── Hero section (home page top) ─────────────────────────────────────────
   hero: {
@@ -153,8 +171,8 @@ export const siteContent = {
       company: 'Freelance — Anarock City Hub Estate, Katampe, Abuja',
       period: 'Dec 2025 – Mar 2026',
       bullets: [
-        'Supervised and coordinated electrical piping and wiring for multiple residential buildings.',
-        'Oversaw conduit systems, cable routing, lighting circuits, and socket outlet installations.',
+        'Supervised electrical piping and wiring across multiple residential buildings at a live estate development.',
+        'Oversaw conduit routing, cable laying, lighting circuits, and socket installations from rough-in through finish.',
       ],
     },
     {
@@ -162,9 +180,9 @@ export const siteContent = {
       company: 'Industrial Training Fund — Model Skills Training Centre, Abuja',
       period: 'May 2024 – Nov 2024',
       bullets: [
-        'Worked with electronic components, circuits, and system testing.',
-        'Hands-on training in embedded systems and electronic device applications.',
-        'Taught participants fundamentals of robotics, electronics, and embedded systems.',
+        'Completed a 7-month internship across electronics labs, circuit testing, and embedded device applications.',
+        'Supported hands-on training modules in robotics, electronics, and microcontroller-based systems.',
+        'Taught programme participants core concepts in circuits, components, and practical prototyping.',
       ],
     },
     {

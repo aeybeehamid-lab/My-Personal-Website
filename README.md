@@ -30,4 +30,6 @@ npm run build
 npm run preview
 ```
 
-Deploy the `dist` folder to Vercel or Netlify when ready.
+Deploy to Vercel — see **`docs/DEPLOY.md`** for step-by-step instructions.
+
+**PowerShell blocking npm?** Run: `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`

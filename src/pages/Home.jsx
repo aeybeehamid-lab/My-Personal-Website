@@ -5,6 +5,7 @@ import Button from '../components/ui/Button'
 import SectionHeading from '../components/ui/SectionHeading'
 import ProjectCard from '../components/cards/ProjectCard'
 import FadeIn from '../components/motion/FadeIn'
+import StatsStrip from '../components/home/StatsStrip'
 
 export default function Home() {
   const { content, getFeaturedProjects } = useSiteContent()
@@ -84,6 +85,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <StatsStrip stats={content.stats} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionHeading

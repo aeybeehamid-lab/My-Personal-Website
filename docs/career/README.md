@@ -6,7 +6,9 @@ You have **three document types**. Use the right one for each situation:
 |----------|--------------|-------------|
 | **Resume** | `resume.md` or `public/cv/resume.html` | Job applications (1–2 pages). Most employers want this. |
 | **CV (full)** | `cv-full.md` or `public/cv/cv-full.html` | Scholarships, internships, academic or detailed applications |
-| **Cover letter** | `cover-letter-template.md` or `public/cv/cover-letter.html` | Customize per company — never send the same letter twice |
+| **Cover letter (general)** | `cover-letter-template.md` or `public/cv/cover-letter.html` | Any role — customize per company |
+| **Cover letter (engineering)** | `cover-letter-engineering.md` or `public/cv/cover-letter-engineering.html` | Electrical, embedded, power, site, maintenance |
+| **Cover letter (fintech)** | `cover-letter-fintech.md` or `public/cv/cover-letter-fintech.html` | Product, startup, payments, operations |
 
 ## Save as PDF (for your website & email)
 
@@ -14,7 +16,9 @@ You have **three document types**. Use the right one for each situation:
 2. Open in browser:
    - Resume: http://localhost:5173/cv/resume.html
    - Full CV: http://localhost:5173/cv/cv-full.html
-   - Cover letter: http://localhost:5173/cv/cover-letter.html
+   - Cover letter (general): http://localhost:5173/cv/cover-letter.html
+   - Cover letter (engineering): http://localhost:5173/cv/cover-letter-engineering.html
+   - Cover letter (fintech): http://localhost:5173/cv/cover-letter-fintech.html
 3. Press **Ctrl+P** → **Save as PDF**
 4. For the website download button, save the resume PDF as:
    - `public/cv/resume.pdf`
