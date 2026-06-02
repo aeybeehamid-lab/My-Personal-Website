@@ -1,10 +1,26 @@
 # Deploy your site live (Vercel)
 
-**Your site:** [https://my-personal-website-xi-nine.vercel.app/](https://my-personal-website-xi-nine.vercel.app/)
+**Live URL:** [https://my-personal-website-xi-nine.vercel.app/](https://my-personal-website-xi-nine.vercel.app/)
 
-**Your GitHub repo:** `https://github.com/aeybeehamid-lab/My-Personal-Website`
+**GitHub:** [github.com/aeybeehamid-lab/My-Personal-Website](https://github.com/aeybeehamid-lab/My-Personal-Website)
 
-Vercel only shows what is on GitHub `main`. Clicking **Redeploy** without pushing code does **not** add new fixes.
+---
+
+## Is the latest code actually live? (30-second test)
+
+Open these two URLs in your browser:
+
+1. [https://my-personal-website-xi-nine.vercel.app/build-version.txt](https://my-personal-website-xi-nine.vercel.app/build-version.txt)  
+   **Must say:** `Site build: 2026-06-01-cv-resume-v3`
+
+2. Scroll to the **footer** on the home page  
+   **Must say:** `build 2026-06-01-cv-resume-v3`
+
+If either is **missing or different**, Vercel is still serving an **old build** — follow **“Fix stale deployment”** below.
+
+**View page source** (Ctrl+U on home page) and search for:
+
+`site-build" content="2026-06-01-cv-resume-v3"`
 
 ---
 
@@ -17,100 +33,85 @@ git commit -m "describe your change"
 git push
 ```
 
-Wait 1–3 minutes. In Vercel → **Deployments** → latest should be **Ready**.
-
-Hard refresh the site: **Ctrl+Shift+R**.
+Wait 1–3 minutes. Hard refresh: **Ctrl+Shift+R**.
 
 ---
 
-## Check the live site is the latest version
+## Fix stale deployment (fixes “went off” / old site)
 
-Scroll to the **footer**. You should see:
+Your code on GitHub is correct. Vercel is often pointed at the **wrong commit** or **wrong project**.
 
-`build 2026-06-01-cv-resume`
+### A — Check the deployment commit
 
-If that line is **missing** or shows an old tag, Vercel is not building your latest GitHub code.
+1. Vercel → project **my-personal-website-xi-nine**
+2. **Deployments** → click the top row
+3. Read the **commit message**. It should be recent, e.g. `chore: add deploy tag` or newer
+4. If it shows an **old** message → **Redeploy** is not enough. Do **B** or **C**.
 
----
+### B — Fix Git connection
 
-## Fixes disappeared after redeploy?
+**Settings → Git**
 
-Usually one of these:
-
-### 1. Code never reached GitHub
-
-```powershell
-git status
-git log -1 --oneline
-git push
-```
-
-Latest commit on GitHub should match your work (e.g. `refactor: CV and resume only`).
-
-### 2. Wrong Vercel project or repo
-
-Vercel → **Settings** → **Git**:
-
-| Setting | Must be |
-|---------|---------|
+| Setting | Correct value |
+|---------|----------------|
 | Repository | `aeybeehamid-lab/My-Personal-Website` |
 | Production Branch | `main` |
-| Root Directory | empty (project root) |
+| Root Directory | *(empty)* |
+
+**Settings → General → Build & Development**
+
+| Setting | Value |
+|---------|--------|
+| Framework Preset | Vite |
 | Build Command | `npm run build` |
 | Output Directory | `dist` |
+| Install Command | `npm install` |
 
-### 3. Redeployed an old deployment
+Then: **Deployments** → **Create Deployment** → branch **main** → Deploy (disable build cache if asked).
 
-In **Deployments**, open the top one and check the **commit message**.
+### C — Deploy from your PC (bypasses wrong Git link)
 
-- Good: `refactor: CV and resume only` or newer  
-- Bad: old commit → click **⋯** on latest GitHub deployment → **Redeploy**  
-- Or: **Deployments** → **Create Deployment** → branch `main` → deploy
-
-Turn **off** “Use existing Build Cache” if offered.
-
-### 4. Two Vercel projects
-
-You may have:
-
-- `my-personal-website-git-main-...vercel.app` (old)  
-- `my-personal-website-xi-nine.vercel.app` (new)
-
-Use **one** project linked to GitHub. Delete or ignore the other so you are not confused.
-
-### 5. Force a fresh deploy
+One-time install:
 
 ```powershell
-git commit --allow-empty -m "chore: trigger Vercel redeploy"
-git push
+npm install -g vercel
 ```
 
----
-
-## What you should see when it works
-
-| Check | URL |
-|-------|-----|
-| Nav says **CV & Resume** | [home](https://my-personal-website-xi-nine.vercel.app/) |
-| Two tabs: Resume + Full CV | [/resume](https://my-personal-website-xi-nine.vercel.app/resume) |
-| Footer build tag | `build 2026-06-01-cv-resume` |
-| No cover letters in nav | — |
-
----
-
-## Fix `npm` on PowerShell
+Login and deploy:
 
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+cd "c:\Users\Abdulhamid\Documents\Website 1.1"
+vercel login
+vercel link
+vercel --prod
 ```
 
-Or use **Command Prompt (cmd)** for `npm run dev`.
+Follow prompts. Link to the **xi-nine** project when asked. This uploads your **local** folder directly.
+
+### D — Only one Vercel project
+
+Use **one** production URL. Delete or ignore extra projects so you do not open an old link by mistake.
 
 ---
 
-## PDF downloads
+## What the working site should show
 
-Add files locally, then push:
+| Check | Expected |
+|-------|----------|
+| Nav | **CV & Resume** |
+| `/resume` | Tabs: **Resume** + **Full CV** |
+| Home hero button | **CV & Resume** |
+| Footer | `build 2026-06-01-cv-resume-v3` |
+| `/build-version.txt` | `Site build: 2026-06-01-cv-resume-v3` |
+| Cover letters | Not on site |
+
+---
+
+## PDF files
+
+After deploy works, add locally and push:
 
 - `public/cv/resume.pdf`
 - `public/cv/cv-full.pdf`
+
+Then **Download resume** / **Download full CV** buttons appear on `/resume`.

@@ -1,0 +1,2 @@
+Site build: 2026-06-01-cv-resume-v3
+If you see this on https://YOUR-SITE.vercel.app/build-version.txt the latest code is live.
