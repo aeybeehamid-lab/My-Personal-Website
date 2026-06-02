@@ -39,7 +39,8 @@ Every `git push` to `main` redeploys automatically.
 ## After deploy — checklist
 
 - [ ] Open your live URL on phone and desktop
-- [ ] Upload `public/cv/resume.pdf` (Print from `/cv/resume.html`) so Download works
+- [ ] Test **Resume** in the nav (`/resume`) — you should see your full resume on screen
+- [ ] Optional: upload `public/cv/resume.pdf` (Print from `/resume` → Save as PDF) for one-click download
 - [ ] Add `public/images/profile.jpg`
 - [ ] Add LinkedIn URL in `siteContent.js` → `social.linkedin`
 

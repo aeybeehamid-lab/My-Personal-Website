@@ -42,3 +42,37 @@ body {
 .glow-accent {
   box-shadow: 0 0 80px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
+
+/* Resume page — print only the white document */
+@media print {
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+
+  header:not(.resume-document header),
+  footer,
+  .resume-toolbar {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .resume-page {
+    background: #fff !important;
+  }
+
+  .resume-print-area {
+    background: #fff !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .resume-document {
+    max-width: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}

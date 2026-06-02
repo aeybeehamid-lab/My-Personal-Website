@@ -5,7 +5,7 @@ import Button from '../components/ui/Button'
 
 export default function Contact() {
   const { content } = useSiteContent()
-  const { personal, social, contact, careerDocs } = content
+  const { personal, social, contact } = content
 
   const socialLinks = [
     { label: 'GitHub', url: social.github },
@@ -94,33 +94,6 @@ export default function Contact() {
           </div>
         </FadeIn>
       </div>
-
-      {careerDocs?.length > 0 && (
-        <FadeIn className="mt-12">
-          <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-            <h3 className="font-semibold text-white">Resume & cover letters</h3>
-            <p className="mt-2 text-sm text-[var(--color-muted)]">
-              Open a document, then press Ctrl+P → Save as PDF. Place your resume PDF at{' '}
-              <code className="font-mono text-xs text-cyan-300/90">public/cv/resume.pdf</code>{' '}
-              for the site download button.
-            </p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {careerDocs.map((doc) => (
-                <li key={doc.href}>
-                  <a
-                    href={doc.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-panel-elevated)] px-4 py-3 text-sm text-cyan-400 transition-colors hover:border-cyan-400/40 hover:text-cyan-300"
-                  >
-                    {doc.label} ↗
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </FadeIn>
-      )}
     </div>
   )
 }

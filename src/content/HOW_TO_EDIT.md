@@ -30,16 +30,14 @@ Supported formats: `.jpg`, `.png`, `.webp`
 
 ---
 
-## Resume on the website
+## CV & Resume on the website
 
-- **View on site:** open `/resume` in the nav (embedded viewer + print/download)
-- **One-click PDF download:** save your file as `public/cv/resume.pdf` — the Resume page detects it automatically
+- **View on site:** nav → **CV & Resume** (tabs: Resume | Full CV)
+- **Download buttons** appear when these files exist:
+  - `public/cv/resume.pdf`
+  - `public/cv/cv-full.pdf`
 
-## Adding your CV (PDF file)
-
-1. Open http://localhost:5173/cv/resume.html → Ctrl+P → Save as PDF
-2. Save the file as `public/cv/resume.pdf`
-3. Push to GitHub — the Resume page will show **Download PDF** instead of **Save as PDF**
+To create PDFs: open each tab → **Save as PDF** → save with the filenames above → `git push`
 
 ---
 

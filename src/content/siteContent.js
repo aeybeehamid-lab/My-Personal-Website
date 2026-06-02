@@ -30,19 +30,16 @@ export const siteContent = {
     // Optional: add public/cv/resume.pdf for one-click download on /resume page
   },
 
-  // ─── Resume viewer (/resume page) ───────────────────────────────────────────
+  // ─── CV & Resume page (/resume) ─────────────────────────────────────────────
   resume: {
     viewPath: '/resume',
-    htmlPath: '/cv/resume.html',
+    pageTitle: 'CV & Resume',
+    viewLabel: 'CV & Resume',
     pdfPath: '/cv/resume.pdf',
-    viewLabel: 'View resume',
-    downloadLabel: 'Download PDF',
+    fullCvPdfPath: '/cv/cv-full.pdf',
+    resumeDownloadLabel: 'Download resume',
+    fullCvDownloadLabel: 'Download full CV',
     printLabel: 'Save as PDF',
-    // Full CV & cover letters (browser → Print → Save as PDF):
-    // /cv/cv-full.html
-    // /cv/cover-letter.html          — general
-    // /cv/cover-letter-engineering.html — electrical / embedded / power
-    // /cv/cover-letter-fintech.html     — product / startup / Paychat-style roles
   },
 
   // ─── Social & professional links (leave "" until you have the URL) ────────
@@ -59,15 +56,6 @@ export const siteContent = {
     { value: '7 mo', label: 'ITF engineering internship' },
     { value: '4 mo', label: 'Residential site engineering' },
     { value: '2', label: 'Degrees (B.Eng + B.Sc.)' },
-  ],
-
-  // ─── Career documents (PDF via browser print, or direct links) ─────────────
-  careerDocs: [
-    { label: 'View resume on site', href: '/resume' },
-    { label: 'Resume (print to PDF)', href: '/cv/resume.html' },
-    { label: 'Full CV', href: '/cv/cv-full.html' },
-    { label: 'Cover letter — Engineering', href: '/cv/cover-letter-engineering.html' },
-    { label: 'Cover letter — Fintech', href: '/cv/cover-letter-fintech.html' },
   ],
 
   // ─── Hero section (home page top) ─────────────────────────────────────────
@@ -316,7 +304,7 @@ export const siteContent = {
     { label: 'Experience', path: '/experience' },
     { label: 'Skills', path: '/skills' },
     { label: 'Education', path: '/education' },
-    { label: 'Resume', path: '/resume' },
+    { label: 'CV & Resume', path: '/resume' },
     { label: 'Contact', path: '/contact' },
   ],
 }

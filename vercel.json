@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/cv/(.*)", "destination": "/cv/$1" },
-    { "source": "/((?!cv/).*)", "destination": "/index.html" }
+    { "handle": "filesystem" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
