@@ -11,6 +11,8 @@ export const siteContent = {
     title: 'Abdulhamid Inuwa',
     description:
       'Engineer in Training — electrical & embedded systems, power electronics, installations, and fintech product development.',
+    // Bump this when you deploy — shows in footer so you know live site is up to date
+    deployTag: '2026-06-01-cv-resume',
   },
 
   // ─── Personal details ─────────────────────────────────────────────────────

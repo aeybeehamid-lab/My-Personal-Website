@@ -23,7 +23,14 @@ export default function Footer() {
             Contact page
           </Link>
         </div>
-        <p className="font-mono text-xs text-[var(--color-muted)]">© {year}</p>
+        <div className="text-right">
+          <p className="font-mono text-xs text-[var(--color-muted)]">© {year}</p>
+          {content.site.deployTag && (
+            <p className="mt-1 font-mono text-[10px] text-[var(--color-muted)]/70">
+              build {content.site.deployTag}
+            </p>
+          )}
+        </div>
       </div>
     </footer>
   )

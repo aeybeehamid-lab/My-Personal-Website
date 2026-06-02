@@ -1,51 +1,116 @@
 # Deploy your site live (Vercel)
 
-## Fix `npm` on PowerShell (if you see "not digitally signed")
+**Your site:** [https://my-personal-website-xi-nine.vercel.app/](https://my-personal-website-xi-nine.vercel.app/)
 
-Run once in PowerShell:
+**Your GitHub repo:** `https://github.com/aeybeehamid-lab/My-Personal-Website`
+
+Vercel only shows what is on GitHub `main`. Clicking **Redeploy** without pushing code does **not** add new fixes.
+
+---
+
+## Deploy new changes (every time)
+
+```powershell
+cd "c:\Users\Abdulhamid\Documents\Website 1.1"
+git add .
+git commit -m "describe your change"
+git push
+```
+
+Wait 1–3 minutes. In Vercel → **Deployments** → latest should be **Ready**.
+
+Hard refresh the site: **Ctrl+Shift+R**.
+
+---
+
+## Check the live site is the latest version
+
+Scroll to the **footer**. You should see:
+
+`build 2026-06-01-cv-resume`
+
+If that line is **missing** or shows an old tag, Vercel is not building your latest GitHub code.
+
+---
+
+## Fixes disappeared after redeploy?
+
+Usually one of these:
+
+### 1. Code never reached GitHub
+
+```powershell
+git status
+git log -1 --oneline
+git push
+```
+
+Latest commit on GitHub should match your work (e.g. `refactor: CV and resume only`).
+
+### 2. Wrong Vercel project or repo
+
+Vercel → **Settings** → **Git**:
+
+| Setting | Must be |
+|---------|---------|
+| Repository | `aeybeehamid-lab/My-Personal-Website` |
+| Production Branch | `main` |
+| Root Directory | empty (project root) |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+
+### 3. Redeployed an old deployment
+
+In **Deployments**, open the top one and check the **commit message**.
+
+- Good: `refactor: CV and resume only` or newer  
+- Bad: old commit → click **⋯** on latest GitHub deployment → **Redeploy**  
+- Or: **Deployments** → **Create Deployment** → branch `main` → deploy
+
+Turn **off** “Use existing Build Cache” if offered.
+
+### 4. Two Vercel projects
+
+You may have:
+
+- `my-personal-website-git-main-...vercel.app` (old)  
+- `my-personal-website-xi-nine.vercel.app` (new)
+
+Use **one** project linked to GitHub. Delete or ignore the other so you are not confused.
+
+### 5. Force a fresh deploy
+
+```powershell
+git commit --allow-empty -m "chore: trigger Vercel redeploy"
+git push
+```
+
+---
+
+## What you should see when it works
+
+| Check | URL |
+|-------|-----|
+| Nav says **CV & Resume** | [home](https://my-personal-website-xi-nine.vercel.app/) |
+| Two tabs: Resume + Full CV | [/resume](https://my-personal-website-xi-nine.vercel.app/resume) |
+| Footer build tag | `build 2026-06-01-cv-resume` |
+| No cover letters in nav | — |
+
+---
+
+## Fix `npm` on PowerShell
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-Or use **Command Prompt (cmd)** instead of PowerShell for `npm run dev`.
+Or use **Command Prompt (cmd)** for `npm run dev`.
 
 ---
 
-## Deploy in 5 steps
+## PDF downloads
 
-1. Push latest code to GitHub:
-   ```powershell
-   git add .
-   git commit -m "chore: prepare site for deployment"
-   git push
-   ```
+Add files locally, then push:
 
-2. Go to [https://vercel.com](https://vercel.com) → sign up with **GitHub**.
-
-3. **Add New Project** → import **My-Personal-Website**.
-
-4. Settings (should auto-detect):
-   - Framework: **Vite**
-   - Build command: `npm run build`
-   - Output directory: `dist`
-
-5. Click **Deploy**. You get a URL like `my-personal-website.vercel.app`.
-
-Every `git push` to `main` redeploys automatically.
-
----
-
-## After deploy — checklist
-
-- [ ] Open your live URL on phone and desktop
-- [ ] Test **Resume** in the nav (`/resume`) — you should see your full resume on screen
-- [ ] Optional: upload `public/cv/resume.pdf` (Print from `/resume` → Save as PDF) for one-click download
-- [ ] Add `public/images/profile.jpg`
-- [ ] Add LinkedIn URL in `siteContent.js` → `social.linkedin`
-
----
-
-## Custom domain (later)
-
-Vercel project → **Settings** → **Domains** → add your domain and follow DNS instructions.
+- `public/cv/resume.pdf`
+- `public/cv/cv-full.pdf`
