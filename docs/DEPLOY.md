@@ -69,6 +69,9 @@ Your code on GitHub is correct. Vercel is often pointed at the **wrong commit** 
 
 Then: **Deployments** → **Create Deployment** → branch **main** → Deploy (disable build cache if asked).
 
+**If deploy fails with `rewrites[0] should NOT have additional property handle`:**  
+Your `vercel.json` must not use `"handle": "filesystem"`. Use the simple rewrite in the repo (already fixed). Push to GitHub and redeploy.
+
 ### C — Deploy from your PC (bypasses wrong Git link)
 
 One-time install:
