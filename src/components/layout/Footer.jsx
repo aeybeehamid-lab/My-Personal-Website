@@ -1,12 +1,22 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { useSiteContent } from '../../hooks/useSiteContent'
+import { useResumeReader } from '../../context/ResumeReaderContext'
 
 export default function Footer() {
   const { content } = useSiteContent()
+  const { pathname } = useLocation()
+  const { folded } = useResumeReader()
   const year = new Date().getFullYear()
+  const hideForReading = pathname === '/resume' && folded
 
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-panel)]">
+    <motion.footer
+      initial={false}
+      animate={{ y: hideForReading ? '100%' : 0, opacity: hideForReading ? 0 : 1 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="site-footer border-t border-[var(--color-border)] bg-[var(--color-panel)]"
+    >
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-semibold text-white">{content.personal.fullName}</p>
@@ -32,6 +42,6 @@ export default function Footer() {
           )}
         </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

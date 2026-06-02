@@ -1,14 +1,23 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useSiteContent } from '../../hooks/useSiteContent'
+import { useResumeReader } from '../../context/ResumeReaderContext'
 
 export default function Header() {
   const { content } = useSiteContent()
+  const { pathname } = useLocation()
+  const { folded } = useResumeReader()
   const [open, setOpen] = useState(false)
+  const hideForReading = pathname === '/resume' && folded
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border)]/80 bg-[var(--color-ink)]/85 backdrop-blur-md">
+    <motion.header
+      initial={false}
+      animate={{ y: hideForReading ? '-100%' : 0 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className="site-header sticky top-0 z-50 border-b border-[var(--color-border)]/80 bg-[var(--color-ink)]/85 backdrop-blur-md"
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link to="/" className="group flex flex-col">
           <span className="text-sm font-semibold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
@@ -85,6 +94,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }

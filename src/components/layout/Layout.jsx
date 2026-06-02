@@ -1,13 +1,18 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { ResumeReaderProvider } from '../../context/ResumeReaderContext'
 import Header from './Header'
 import Footer from './Footer'
 
 export default function Layout() {
   const location = useLocation()
+  const isResumePage = location.pathname === '/resume'
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <ResumeReaderProvider>
+    <div
+      className={`flex flex-col ${isResumePage ? 'resume-layout h-screen max-h-screen overflow-hidden' : 'min-h-screen'}`}
+    >
       <Header />
       <AnimatePresence mode="wait">
         <motion.main
@@ -23,5 +28,6 @@ export default function Layout() {
       </AnimatePresence>
       <Footer />
     </div>
+    </ResumeReaderProvider>
   )
 }

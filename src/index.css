@@ -43,6 +43,19 @@ body {
   box-shadow: 0 0 80px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
+/* Resume reader — full viewport scroll area */
+.resume-layout main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-layout .site-header,
+.resume-layout .site-footer {
+  will-change: transform;
+}
+
 /* Resume page — print only the white document */
 @media print {
   body {
@@ -50,8 +63,8 @@ body {
     color: #1a1a1a !important;
   }
 
-  header:not(.resume-document header),
-  footer,
+  .site-header,
+  .site-footer,
   .resume-toolbar {
     display: none !important;
   }
