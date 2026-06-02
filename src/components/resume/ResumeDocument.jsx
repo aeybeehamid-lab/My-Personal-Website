@@ -18,7 +18,7 @@ export default function ResumeDocument() {
   )
 
   return (
-    <article className="resume-document mx-auto max-w-[210mm] bg-white px-8 py-10 text-[#1a1a1a] sm:px-12 sm:py-12">
+    <article className="resume-document mx-auto max-w-[210mm] bg-white px-5 py-6 text-[#1a1a1a] shadow-sm sm:px-10 sm:py-10 print:px-12 print:py-12">
       <header className="border-b-2 border-[#0f4c5c] pb-4">
         <h1 className="text-3xl font-bold tracking-tight text-[#0a1628]">{personal.fullName}</h1>
         <p className="mt-1 text-sm font-semibold text-[#0f4c5c]">

@@ -13,7 +13,7 @@ export default function Layout() {
     <div
       className={`flex flex-col ${isResumePage ? 'resume-layout h-screen max-h-screen overflow-hidden' : 'min-h-screen'}`}
     >
-      <Header />
+      {!isResumePage && <Header />}
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -26,7 +26,7 @@ export default function Layout() {
           <Outlet />
         </motion.main>
       </AnimatePresence>
-      <Footer />
+      {!isResumePage && <Footer />}
     </div>
     </ResumeReaderProvider>
   )

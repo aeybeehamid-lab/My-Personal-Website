@@ -51,9 +51,24 @@ body {
   flex-direction: column;
 }
 
-.resume-layout .site-header,
-.resume-layout .site-footer {
-  will-change: transform;
+/* CV page: no site header/footer — full height for reading */
+.resume-layout {
+  height: 100dvh;
+  max-height: 100dvh;
+}
+
+.resume-layout main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media print {
+  .resume-layout {
+    height: auto;
+    max-height: none;
+  }
 }
 
 /* Resume page — print only the white document */
